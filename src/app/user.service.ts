@@ -1,12 +1,14 @@
 import { Injectable } from "@angular/core";
 import { Http } from "@angular/http";
 import { Observable } from "rxjs";
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ServiciosService{
     constructor(private http:Http){}
 
     login(user:string,pws:string):Observable<any>{
-        this.http.post
+        return this.http.get("http://localhost:8080/WSEjemplo/rest/Usuario?login="+user+"&clave="+pws).
+        map(response=>{return response.text()})
     }
 }
