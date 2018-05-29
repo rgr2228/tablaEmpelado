@@ -11,4 +11,9 @@ export class ServiciosService{
         return this.http.get("http://localhost:8080/WSEjemplo/rest/Usuario?login="+user+"&clave="+pws).
         map(response=>{return response.text()})
     }
+
+    obtenerClientes():Observable<any>{
+        return this.http.get("http://localhost:8080/WSEjemplo/rest/Cliente").
+        map(response=>{return response.text()})
+    }
 }
